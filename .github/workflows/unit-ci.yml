@@ -17,7 +17,7 @@ jobs:
         config:
           - {
             os: ubuntu-latest,
-            cc: clang-12, cxx: clang++-12,
+            cc: clang-16, cxx: clang++-16,
           }
         build_type: [ RelWithDebInfo ]
         stl_implementation: [ libstdc++ ]
@@ -29,6 +29,7 @@ jobs:
 
       - name: Configure CMake
         run:
+          sudo apt-get install libjpeg-dev libpng-dev &&
           mkdir build &&
           cd build &&
           cmake ..
